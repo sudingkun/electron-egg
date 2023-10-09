@@ -24,6 +24,7 @@
     "build-wz-32": "electron-builder --config=./electron/config/builder.json -w=7z --ia32",
     "build-wz-64": "electron-builder --config=./electron/config/builder.json -w=7z --x64",
     "build-wz-arm64": "electron-builder --config=./electron/config/builder.json -w=7z --arm64",
+    "build-wz-all": "electron-builder --config=./electron/config/builder.json -w=7z --x64 --arm64",
     "build-m": "electron-builder --config=./electron/config/builder.json -m",
     "build-m-arm64": "electron-builder --config=./electron/config/builder.json -m --arm64",
     "build-l": "electron-builder --config=./electron/config/builder.json -l=deb --x64",

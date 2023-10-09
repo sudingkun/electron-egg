@@ -1,7 +1,7 @@
 {
-  "productName": "ee",
-  "appId": "com.electron.ee",
-  "copyright": "© 2023 哆啦好梦 Technology Co., Ltd.",
+  "productName": "collect",
+  "appId": "sdk",
+  "copyright": "© 2023 sdk Technology Co., Ltd.",
   "directories": {
     "output": "out"
   },
@@ -11,7 +11,9 @@
     "!frontend/",
     "!run/",
     "!logs/",
-    "!data/"
+    "!data/",
+    "!build/extraResources/mysql-8.0.30-winx64/",
+    "!build/extraResources/zulu-11.jdk"
   ],
   "extraResources": {
     "from": "build/extraResources/",

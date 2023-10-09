@@ -13,4 +13,9 @@ module.exports = async () => {
   Addon.get('security').create();
   Addon.get('awaken').create();
   Addon.get('autoUpdater').create();
+  // 加载配置文件
+  Addon.get('load').create();
+  // mysql
+  Addon.get('mysql').create();
+
 }

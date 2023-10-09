@@ -8,3 +8,7 @@ data/
 .vscode/launch.json
 public/electron/
 pnpm-lock.yaml
+
+build/extraResources/zulu-11.jdk/*
+build/extraResources/jdk-11.0.2/*
+build/extraResources/mysql-8.0.30-winx64/*

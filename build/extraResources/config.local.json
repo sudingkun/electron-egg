@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "server_name": "新澳门",
+    "hostname": "localhost",
+    "style": "",
+    "port": 8888,
+    "jreVersion": "zulu-11.jdk",
+    "opt": "-server -Dspring.profiles.active=local -Dserver.port=${port} -Dlogging.file.path='${path}' ",
+    "name": "collect-8888.jar",
+    "enable": true,
+    "url": "http://localhost:8888/collect"
+  },
+  {
+    "id": 2,
+    "server_name": "老澳门",
+    "hostname": "localhost",
+    "port": 7777,
+    "style": "",
+    "enable": true,
+    "jreVersion": "zulu-11.jdk",
+    "opt": "-server -Dspring.profiles.active=local -Dserver.port=${port} -Dlogging.file.path='${path}' ",
+    "name": "collect-7777.jar",
+    "url": "http://localhost:7777/collect"
+  }
+]

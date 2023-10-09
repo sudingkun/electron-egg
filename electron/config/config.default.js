@@ -24,10 +24,9 @@ module.exports = (appInfo) => {
    */
   config.windowsOption = {
     title: 'EE框架',
-    width: 980,
-    height: 650,
-    minWidth: 800,
-    minHeight: 650,
+    width: 680,
+    height: 325,
+    resizable: false,
     webPreferences: {
       webSecurity: false,
       contextIsolation: false, // false -> 可在渲染进程中使用electron的api，true->需要bridge.js(contextBridge)
@@ -51,7 +50,8 @@ module.exports = (appInfo) => {
     rotator: 'day',
     appLogName: 'ee.log',
     coreLogName: 'ee-core.log',
-    errorLogName: 'ee-error.log' 
+    errorLogName: 'ee-error.log',
+    dir: path.join(appInfo.execDir, 'logs'), // 日志目录
   }
 
   /**
@@ -121,7 +121,7 @@ module.exports = (appInfo) => {
    * 硬件加速
    */
   config.hardGpu = {
-    enable: false
+    enable: true
   };
 
   /**
@@ -142,7 +142,7 @@ module.exports = (appInfo) => {
     },
     tray: {
       enable: true,
-      title: 'EE程序',
+      title: '六合',
       icon: '/public/images/tray.png'
     },
     security: {
@@ -170,7 +170,19 @@ module.exports = (appInfo) => {
       jreVersion: 'jre1.8.0_201',
       opt: '-server -Xms512M -Xmx512M -Xss512k -Dspring.profiles.active=prod -Dserver.port=${port} -Dlogging.file.path="${path}" ',
       name: 'java-app.jar'
-    }
+    },
+    myJavaServer: {
+      enable: true
+    },
+    load: {
+      enable: true,
+      name: 'config.${env}.json'
+    },
+    mysql: {
+      enable: true,
+      port: 3306,
+      dbVersion: 'mysql-8.0.30-winx64'
+    },
   };
 
   return {

@@ -1,4 +1,6 @@
 const { Application } = require('ee-core');
+const Addon = require('ee-core/addon');
+
 
 class Index extends Application {
 
@@ -39,9 +41,10 @@ class Index extends Application {
 
   /**
    * before app close
-   */  
+   */
   async beforeClose () {
     // do some things
+    await Addon.get('mysql').kill();
 
   }
 }

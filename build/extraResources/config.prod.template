@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "server_name": "server_name",
+  "hostname": "localhost",
+  "style": "",
+  "port": xxxx,
+  "jreVersion": "11.0.2-9_win-x64",
+  "opt": "--spring.profiles.active=prod --server.port=${port} --logging.file.path=${path} ",
+  "name": "collect-xxxx.jar",
+  "enable": true,
+  "url": "http://localhost:xxxx/collect"
+}

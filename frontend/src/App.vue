@@ -1,13 +1,7 @@
 <template>
-  <router-view/>
+  <Login/>
 </template>
 
-<script>
-export default {
-name: 'App',
-setup() {
-  document.getElementById('loadingPage').remove()
-}
-}
+<script setup>
+import Login from "~/views/login/Login.vue";
 </script>
-<style lang="less"></style>
