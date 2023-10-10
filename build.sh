@@ -10,5 +10,8 @@ npm run rd
 
 npm install
 
+#下载jdk
+sh download_jdk.sh
+
 #egg打包
 npm run build-wz-all
