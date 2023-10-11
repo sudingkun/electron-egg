@@ -1,11 +1,12 @@
+#!/bin/bash
+# 获取脚本所在的绝对路径
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-cd frontend || exit
-npm install
-
-#前端打包
-cd ../ && npm run build-frontend
+cd "$script_dir/frontend" || exit
+npm install && npm run build
 
 #移动前端资源文件
+cd ../
 npm run rd
 
 npm install

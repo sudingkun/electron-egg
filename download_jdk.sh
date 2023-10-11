@@ -1,10 +1,12 @@
 #!/bin/bash
 
-cd build/extraResources || exit
+# 获取脚本所在的绝对路径
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+cd "$script_dir/build/extraResources" || exit
 
-jdk_dir="jdk-11.0.2"
+jdk_dir="$script_dir/build/extraResources/jdk-11.0.2"
 
-if [ -d "$jdk_dir" ] && [ "$(ls -A $jdk_dir)" ]; then
+if [ -d "$jdk_dir" ] && [ "$(ls -A "$jdk_dir")" ]; then
     echo "目录非空"
     exit 0
 fi
