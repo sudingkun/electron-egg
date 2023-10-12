@@ -53,9 +53,9 @@ class MyJavaServer {
                 cmdStr = `${jrePath} -jar ${softwarePath} ${javaOptStr}`;
             } else if (is.macOS()) {
                 // 如果提示：不受信任，请执行：  sudo spctl --master-disable
-                jrePath = path.join(jrePath, "Contents", "Home", "bin", "java");
+                // jrePath = path.join(jrePath, "Contents", "Home", "bin", "java");
                 //cmdStr = `nohup ${jrePath} -jar ${javaOptStr} ${softwarePath} >/dev/null 2>&1 &`;
-                cmdStr = `${jrePath} -jar ${javaOptStr} ${softwarePath}`;
+                cmdStr = `java -jar ${javaOptStr} ${softwarePath}`;
             } else {
                 // todo linux
             }
