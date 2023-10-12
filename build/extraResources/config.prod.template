@@ -4,7 +4,7 @@
   "hostname": "localhost",
   "style": "",
   "port": PORT,
-  "jreVersion": "11.0.2-9_win-x64",
+  "jreVersion": "jdk-11.0.2",
   "opt": "--spring.profiles.active=prod --server.port=${port} --logging.file.path=${path} ",
   "name": "collect-PORT.jar",
   "enable": true,

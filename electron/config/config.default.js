@@ -181,7 +181,7 @@ module.exports = (appInfo) => {
     mysql: {
       enable: true,
       port: 3306,
-      dbVersion: 'mysql'
+      dbVersion: 'mysql-8.0.30-winx64'
     },
   };
 
