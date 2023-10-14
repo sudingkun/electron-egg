@@ -15,4 +15,4 @@ npm install
 sh download_jdk.sh
 
 #egg打包
-npm run build-wz-all
+npm run build-wz

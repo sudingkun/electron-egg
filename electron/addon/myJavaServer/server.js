@@ -46,7 +46,7 @@ class MyJavaServer {
 
             // 替换opt参数
             javaOptStr = _.replace(javaOptStr, "${port}", port);
-            javaOptStr = _.replace(javaOptStr, "${path}", path.join(UtilsPs.getExecDir(), 'logs',this.options.id));
+            javaOptStr = _.replace(javaOptStr, "${path}", path.join(UtilsPs.getExecDir(), 'logs',this.options.id.toString()));
 
             if (is.windows()) {
                 jrePath = path.join(jrePath, "bin", "javaw.exe");
