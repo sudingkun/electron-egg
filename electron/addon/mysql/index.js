@@ -31,7 +31,7 @@ class MysqlAddon {
             }
 
             let cmdStr = '';
-            let softwarePath = path.join(UtilsPs.getExecDir(), '..',this.cfg.dbVersion);
+            let softwarePath = path.join(UtilsPs.getExtraResourcesDir(), this.cfg.dbVersion);
 
             Log.info("[addon:mysql] file path:", softwarePath);
             if (!fs.existsSync(softwarePath)) {
