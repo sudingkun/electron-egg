@@ -6,6 +6,7 @@ const path = require("path");
 const UtilsPs = require("ee-core/ps");
 const fs = require("fs");
 const {exec, execSync} = require("child_process");
+const Ps = require("ee-core/ps");
 
 
 /**
@@ -18,24 +19,47 @@ class MysqlAddon {
         this.cfg = null;
     }
 
+
+    init() {
+        this.cfg = Conf.getValue('addons.mysql');
+        if (this.cfg.enable === false || Ps.isDev()) {
+            return;
+        }
+        let softwarePath = path.join(UtilsPs.getExtraResourcesDir(), this.cfg.path);
+        Log.info("[addon:mysql] file path:", softwarePath);
+        if (!fs.existsSync(softwarePath)) {
+            if (!this.cfg.linkPath) {
+                throw new Error('mysql program does not exist');
+            }
+
+            let linkPath = path.join(UtilsPs.getExtraResourcesDir(), this.cfg.linkPath)
+            Log.warn("mysql program does not exist, try to create symbolic link ", linkPath);
+            try {
+                //fs.mkdirSync(softwarePath, {recursive: true});
+                fs.symlinkSync(linkPath, softwarePath, 'junction');
+                console.log('Symbolic link created successfully!');
+                this.cfg.softwarePath = softwarePath;
+            } catch (e) {
+                Log.error('[addon:mysql] symlinkSync', e);
+            }
+        } else {
+            this.cfg.softwarePath = softwarePath;
+        }
+
+    }
+
     /**
      * 创建
      */
     async create() {
         try {
-            Log.info('[addon:mysql] load');
-            this.cfg = Conf.getValue('addons.mysql');
+            this.init();
             Log.info('[addon:mysql] cfg: ', this.cfg);
-            if (this.cfg.enable === false) {
-                return;
-            }
 
             let cmdStr = '';
-            let softwarePath = path.join(UtilsPs.getExtraResourcesDir(), this.cfg.dbVersion);
-
-            Log.info("[addon:mysql] file path:", softwarePath);
-            if (!fs.existsSync(softwarePath)) {
-                throw new Error('mysql program does not exist');
+            let softwarePath = this.cfg.softwarePath;
+            if (!softwarePath) {
+                return;
             }
 
             let isRunning = await this.isRun()
