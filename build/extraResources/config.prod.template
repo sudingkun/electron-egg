@@ -8,5 +8,5 @@
   "opt": "--spring.profiles.active=prod --server.port=${port} --logging.file.path=${path} ",
   "name": "collect-PORT.jar",
   "enable": true,
-  "url": "http://localhost:PORT/collect"
+  "url": "http://localhost:PORT/collect/#/?server_name=NAME"
 }
